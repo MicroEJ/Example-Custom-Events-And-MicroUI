@@ -15,6 +15,9 @@ import ej.microui.Event;
  */
 public class CustomEventGenerator extends EventGenerator {
 
+	/**
+	 * Custom event type.
+	 */
 	public static final int CUSTOM = 42;
 
 	@Override

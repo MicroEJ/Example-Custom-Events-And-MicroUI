@@ -51,7 +51,7 @@ public class CustomEventDisplayable extends Displayable {
 		// Draws the last custom event data received.
 		String eventText;
 		if (this.hasReceivedEvent) {
-			eventText = "Event " + String.valueOf(this.lastCustomEventDataReceived) + " - " + String.valueOf(this.id);
+			eventText = "Event " + this.lastCustomEventDataReceived + " - " + this.id;
 		} else {
 			eventText = "No event";
 		}

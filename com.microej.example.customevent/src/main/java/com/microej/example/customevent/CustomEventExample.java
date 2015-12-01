@@ -14,6 +14,10 @@ import ej.microui.io.Displayable;
  */
 public class CustomEventExample {
 
+	// Prevents initialization.
+	private CustomEventExample() {
+	}
+
 	/**
 	 * Example entry point.
 	 *
