@@ -1,11 +1,11 @@
 # Overview
-The examples below illustrates some MicroUI features.
+The examples below illustrates some of the MicroUI library features.
 
 ## com.microej.example.customevent
-The following project illustrates how to make the hardware events visible from MicroUI.
-That is use the Inputs module which sends events to the Java world for other things than send touch, button or joystick events.
+The following project illustrates how to make the hardware events visible from MicroUI. MicroUI already supports generic events like touch, button and joystick.
+Hardware events (e.g. sensors movement) can be used for specific display action upon this event.
 
-See the User Interface Extension User Manual at section 4.3 for more information.
+See the User Interface Extension User Manual at section MicroUI->MicroUI Internal (4.3) for more information.
 
 ### Requirements
 - JRE 7 (or later) x86.
@@ -25,8 +25,10 @@ See the User Interface Extension User Manual at section 4.3 for more information
 '''
 
 3. Build your platform.
-4. At the root of the repository in the BSP_entry_points folder, choose the file corresponding to the Board/RTOS used and copy/paste the file into the xxx-bsp project to replace the application entry point.
-5. Back to MicroEJ, create a launch configuration for the java application
+4. At the root of this Github repository in the /BSP_entry_points folder
+4.1 Choose the file corresponding to the board/RTOS used 
+4.2 Copy/paste the file into your MicroEJ workspace /xxx-bsp project to replace the application entry point.
+5. In MicroEJ, create a launch configuration for the Java application
 5.1. Set the name to "CustomEvent_Build"
 5.2. In the "main tab"
 5.2.1. Set the project to "com.microej.example.customevent"
@@ -43,13 +45,11 @@ See the User Interface Extension User Manual at section 4.3 for more information
 ### Troubleshooting
 - xxx does not provide implementation for MICROUI-1.5.0-INTERNAL (referenced by project com.microej.example.customevent): in the xxx project rename the file `javaLibs/microui_internal-1.5.0.jar` to `microui-1.5.0-internal.jar` (hint : you can locate it easily using the Ctrl+Shift+R keyboard shortcut).
 
-  
 ## BSP_entry_points
-- Entry points for the given RTOS/Board that generate custom events.
-
+- Entry points (main.c) example for the given board/RTOS that generates custom events.
 
 ## Changes
-- 2015 november: initial.
+- 2015 november: initial release.
 
 ## License
 See the license file `LICENSE.md` located at the root of this repository.
