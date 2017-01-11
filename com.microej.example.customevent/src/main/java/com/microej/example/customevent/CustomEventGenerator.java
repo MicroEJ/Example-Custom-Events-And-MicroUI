@@ -6,41 +6,39 @@
  */
 package com.microej.example.customevent;
 
-import com.is2t.microui.io.EventGenerator;
-
-import ej.microui.Event;
+import ej.microui.event.Event;
+import ej.microui.event.generator.GenericEventGenerator;
 
 /**
  * Event generator used to received the custom events.
  */
-public class CustomEventGenerator extends EventGenerator {
+public class CustomEventGenerator extends GenericEventGenerator {
 
-	/**
-	 * Custom event type.
-	 */
-	public static final int CUSTOM = 42;
-
-	@Override
-	public void setProperty(String name, String value) {
-		// Nothing to do.
-	}
+	public static final int CUSTOM = 0x00;
 
 	@Override
 	protected void eventReceived(int event) {
 		event = Event.buildEvent(getEventType(), this, event);
-		// Dispatches the event to the listener.
-		getListener().performAction(event);
+		getEventHandler().handleEvent(event);
+	}
+
+	@Override
+	public void setProperty(String name, String value) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	protected void eventsReceived(int[] events) {
 		for (int event : events) {
 			eventReceived(event);
-		}
+		}		
 	}
 
 	@Override
 	public int getEventType() {
 		return CUSTOM;
 	}
+	
+
 }

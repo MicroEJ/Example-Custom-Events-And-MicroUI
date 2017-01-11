@@ -6,8 +6,9 @@
  */
 package com.microej.example.customevent;
 
-import ej.microui.io.Display;
-import ej.microui.io.Displayable;
+import ej.microui.MicroUI;
+import ej.microui.display.Display;
+import ej.microui.display.Displayable;
 
 /**
  * This example illustrates the use of the custom events.
@@ -25,6 +26,7 @@ public class CustomEventExample {
 	 *            not used.
 	 */
 	public static void main(String[] args) {
+		MicroUI.start();
 		Display display = Display.getDefaultDisplay();
 		Displayable displayable = new CustomEventDisplayable(display);
 		displayable.show();
