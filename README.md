@@ -4,19 +4,7 @@ Hardware events (e.g. sensors movement) can be used for specific display action 
 
 See the Device Developer's Guide at section **Inputs** (13.5) for more information.
 
-### Requirements
-- JRE 7 (or later) x86.
-- MicroEJ 4.0 or later.
-- Java platform with (at least) EDC-1.2, MICROUI-2.0.
-
-### Project structure
-- com.microej.example.customevent
-	- src/main/java
-		- Java sources
-	- src/main/c
-		- Entry points (main.c) examples for the given board/RTOS that generates custom events.
-
-### Steps:
+# Usage
 1. Create a platform with at least the UI module.
 2. Before building this platform, some configuration is required. In the **xxx-configuration project** in the **microui/microui.xml** file, add the following xml element to the eventgenerators 
 <code>\<eventgenerator name="CUSTOM" class="com.microej.example.customevent.CustomEventGenerator"\></code>
@@ -35,4 +23,22 @@ See the Device Developer's Guide at section **Inputs** (13.5) for more informati
 6. Run the launch configuration.
 7. Compile, link and flash the xxx-bsp project.
 
+# Requirements
+- JRE 7 (or later) x86.
+- MicroEJ 4.0 or later.
+- Java platform with (at least) EDC-1.2, MICROUI-2.0.
 
+# Project structure
+- src/main/java
+	- Java sources
+- src/main/c
+	- Entry points (main.c) examples for the given board/RTOS that generates custom events.
+
+# Dependencies
+_All dependencies are retrieved transitively by Ivy resolver_.
+
+# Source
+N/A
+
+# Restrictions
+None.
