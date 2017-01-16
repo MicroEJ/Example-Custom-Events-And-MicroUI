@@ -10,16 +10,16 @@ See the Device Developer's Guide at section **Inputs** (13.5) for more informati
 <code>\<eventgenerator name="CUSTOM" class="com.microej.example.customevent.CustomEventGenerator"\></code>
 3. Build your platform.
 4. In the [/com.microej.example.customevent/src/main/c](com.microej.example.customevent/src/main/c) folder
-4.1 Choose the file corresponding to the board/RTOS used 
-4.2 Replace the application entry point in the /xxx-bsp project by the file selected in the previous step
+	1. Choose the file corresponding to the board/RTOS used 
+	2. Replace the application entry point in the /xxx-bsp project by the file selected in the previous step
 5. In MicroEJ, create a launch configuration for the Java application
-5.1. Set the name to "CustomEvent_Build"
-5.2. In the **Main** tab
-5.2.1. Set the **Project** field to "com.microej.example.customevent"
-5.2.2. Set the **Main type** field  to "CustomEventExample"
-5.3. In the **Execution** tab
-5.3.1. In the **Target** frame, set the JPF to the one built in step #3
-5.3.2. In the **Execution** frame, select the **Execute on EmbJPF** radio button
+	1. Set the name to "CustomEvent_Build"
+	2. In the **Main** tab
+		1. Set the **Project** field to "com.microej.example.customevent"
+		2. Set the **Main type** field  to "CustomEventExample"
+	3. In the **Execution** tab
+		1. In the **Target** frame, set the JPF to the one built in step #3
+		2. In the **Execution** frame, select the **Execute on EmbJPF** radio button
 6. Run the launch configuration.
 7. Compile, link and flash the xxx-bsp project.
 
