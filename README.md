@@ -6,8 +6,10 @@ See the Device Developer's Guide at section **Inputs** (13.5) for more informati
 
 # Usage
 1. Create a platform with at least the UI module.
-2. Before building this platform, some configuration is required. In the **xxx-configuration project** in the **microui/microui.xml** file, add the following xml element to the eventgenerators 
-<code>\<eventgenerator name="CUSTOM" class="com.microej.example.customevent.CustomEventGenerator"\></code>
+2. Before building this platform, some configuration is required. In the **xxx-configuration project** in the **microui/microui.xml** file, add the following xml element as the first eventgenerator.
+
+        <eventgenerator name="CUSTOM" class="com.microej.example.customevent.CustomEventGenerator"/>
+
 3. Build your platform.
 4. In the [/com.microej.example.customevent/src/main/c](com.microej.example.customevent/src/main/c) folder
 	1. Choose the file corresponding to the board/RTOS used 
