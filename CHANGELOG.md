@@ -12,7 +12,7 @@ Bugfixes:
   - List here the bug fixes.
 -->
 
-## 1.1.0 (2017-01-16)
+## 1.1.0 (2017-01-20)
 Features:
   - Updated for MicroEj 4.0.
   
