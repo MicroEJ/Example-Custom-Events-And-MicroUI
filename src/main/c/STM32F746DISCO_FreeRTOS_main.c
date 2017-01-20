@@ -126,9 +126,9 @@ void xEventTaskFunction(void * pvParameters)
 	for(;;)
 		{
 			vTaskDelay(2000);
-			int event = rand() % 100;
+			int eventData = rand() % 100;
 			// Sends the given event to our custom event generator.
-			LLINPUT_sendEvent(MICROUI_EVENTGEN_CUSTOM, event);
+			LLINPUT_sendEvent(MICROUI_EVENTGEN_CUSTOM, eventData);
 		}
 }
 

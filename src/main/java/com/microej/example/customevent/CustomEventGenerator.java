@@ -24,15 +24,14 @@ public class CustomEventGenerator extends GenericEventGenerator {
 
 	@Override
 	public void setProperty(String name, String value) {
-		// TODO Auto-generated method stub
-		
+		//no property is to be associated with our event generator
 	}
 
 	@Override
 	protected void eventsReceived(int[] events) {
 		for (int event : events) {
 			eventReceived(event);
-		}		
+		}
 	}
 
 	@Override

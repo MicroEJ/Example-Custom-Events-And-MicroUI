@@ -25,7 +25,7 @@ public class CustomEventDisplayable extends Displayable implements EventHandler 
 	private final int displayHeight;
 	private int lastCustomEventDataReceived;
 	private boolean hasReceivedEvent;
-	private int id;
+	private int eventGeneratorId;
 
 	/**
 	 * Creates a new custom event displayable for the given display.
@@ -52,7 +52,7 @@ public class CustomEventDisplayable extends Displayable implements EventHandler 
 		// Draws the last custom event data received.
 		String eventText;
 		if (this.hasReceivedEvent) {
-			eventText = "Event " + this.lastCustomEventDataReceived + " - " + this.id;
+			eventText = "Event : data => " + this.lastCustomEventDataReceived + " , generator id => " + this.eventGeneratorId;
 		} else {
 			eventText = "No event";
 		}
@@ -76,7 +76,7 @@ public class CustomEventDisplayable extends Displayable implements EventHandler 
 			}
 			this.lastCustomEventDataReceived = Event.getData(event);
 
-			this.id = Event.getGeneratorID(event);
+			this.eventGeneratorId = Event.getGeneratorID(event);
 			eventProcessed = true;
 			repaint();
 		}
