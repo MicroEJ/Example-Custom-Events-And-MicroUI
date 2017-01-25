@@ -6,16 +6,17 @@
  */
 package com.microej.example.customevent;
 
-import ej.microui.Colors;
-import ej.microui.Event;
-import ej.microui.io.Display;
-import ej.microui.io.Displayable;
-import ej.microui.io.GraphicsContext;
+import ej.microui.display.Colors;
+import ej.microui.display.Display;
+import ej.microui.display.Displayable;
+import ej.microui.display.GraphicsContext;
+import ej.microui.event.Event;
+import ej.microui.util.EventHandler;
 
 /**
  * This displayable allows to show the reception of the custom events.
  */
-public class CustomEventDisplayable extends Displayable {
+public class CustomEventDisplayable extends Displayable implements EventHandler {
 
 	private static final int BACKGROUND_COLOR = Colors.NAVY;
 	private static final int FOREGROUND_COLOR = Colors.WHITE;
@@ -24,7 +25,7 @@ public class CustomEventDisplayable extends Displayable {
 	private final int displayHeight;
 	private int lastCustomEventDataReceived;
 	private boolean hasReceivedEvent;
-	private int id;
+	private int eventGeneratorId;
 
 	/**
 	 * Creates a new custom event displayable for the given display.
@@ -51,7 +52,7 @@ public class CustomEventDisplayable extends Displayable {
 		// Draws the last custom event data received.
 		String eventText;
 		if (this.hasReceivedEvent) {
-			eventText = "Event " + this.lastCustomEventDataReceived + " - " + this.id;
+			eventText = "Event : data => " + this.lastCustomEventDataReceived + " , generator id => " + this.eventGeneratorId;
 		} else {
 			eventText = "No event";
 		}
@@ -60,16 +61,30 @@ public class CustomEventDisplayable extends Displayable {
 	}
 
 	@Override
-	public void performAction(int event) {
+	public EventHandler getController() {
+		return this;
+	}
+
+	@Override
+	public boolean handleEvent(int event) {
+		boolean eventProcessed = false;
+
 		// Filter on the event type to retrieve the custom events.
 		if (Event.getType(event) == CustomEventGenerator.CUSTOM) {
 			if (!this.hasReceivedEvent) {
 				this.hasReceivedEvent = true;
 			}
 			this.lastCustomEventDataReceived = Event.getData(event);
-			this.id = Event.getGeneratorID(event);
+
+			this.eventGeneratorId = Event.getGeneratorID(event);
+			eventProcessed = true;
 			repaint();
 		}
+		
+		if (Event.getType(event) == Event.POINTER) {
+			System.out.println("CustomEventDisplayable.handleEvent() Pointer event ID : " + Event.getGeneratorID(event));
+		}
+		return eventProcessed;
 	}
 
 }
