@@ -11,6 +11,10 @@ Features:
 Bugfixes:
   - List here the bug fixes.
 -->
+## 1.1.1 (2017-08-216)
+BugFixes:
+  - Fix main
+  
 
 ## 1.1.0 (2017-01-20)
 Features:

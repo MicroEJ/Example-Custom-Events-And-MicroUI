@@ -151,6 +151,11 @@ int main(void)
 	vTaskStartScheduler();	
 }
 
+void platform_main(void)
+{
+    main();
+}
+
 /**
   * @brief  System Clock Configuration
   *         The system Clock is configured as follow :
